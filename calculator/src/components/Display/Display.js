@@ -6,7 +6,7 @@ const display = props => {
   return (
     <div className={classes.Display}>
       <p result={props.score} style={{ textAlign: 'right', fontSize: '35px' }}>
-        {props.score ? props.score : '0'}
+        {props.score ? props.previousInput + ' = ' + props.score : '0'}
       </p>
       <UserInput className={classes.UserInput} expression={props.userInput} />
     </div>

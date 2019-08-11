@@ -6,7 +6,8 @@ import classes from './Calculator';
 class Calculator extends Component {
   state = {
     inputExpression: '',
-    result: ''
+    result: '',
+    prevInput: ''
   };
 
   handleInput = input => {
@@ -31,7 +32,8 @@ class Calculator extends Component {
     } else {
       result = eval(this.state.inputExpression);
     }
-    this.setState({ result: result });
+    let previousInput = this.state.inputExpression;
+    this.setState({ result: result, prevInput: previousInput, inputExpression: '' });
   };
 
   handleClear = () => {
@@ -64,6 +66,7 @@ class Calculator extends Component {
         <Display
           userInput={this.state.inputExpression}
           score={this.state.result}
+          previousInput={this.state.prevInput}
         />
         <Controls
           clicked={this.handleInput}
