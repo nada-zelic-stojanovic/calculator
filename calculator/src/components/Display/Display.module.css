@@ -1,0 +1,10 @@
+.Display {
+  background-color: grey;
+  color: white;
+  width: 400px;
+  height: 120px;
+}
+
+.UserInput {
+    font-style: 'Arial';
+}
