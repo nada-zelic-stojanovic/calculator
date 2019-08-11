@@ -1,0 +1,17 @@
+.Numbers {
+  display: grid;
+  grid-gap: 5px;
+  width: 250px;
+  margin-top: 10px;
+}
+
+.Numbers button {
+  width: 60px;
+  height: 75px;
+  margin: 5px 5px;
+  border: none;
+  border-radius: 5px;
+  background-color: rgb(0, 153, 153);
+  color:white;
+  font-size: 25px;
+}

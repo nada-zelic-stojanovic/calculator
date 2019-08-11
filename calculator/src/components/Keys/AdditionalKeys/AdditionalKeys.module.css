@@ -1,0 +1,28 @@
+.EraseButtons {
+    margin-top: 10px;
+}
+.EraseButtons button {
+    width: 90px;
+    height: 90px;
+    margin: 5px;
+    border: none;
+    border-radius: 5px;
+    font-size: 30px;
+    font-weight: bold;
+    color:rgb(0, 77, 77);
+}
+.OperationButtons {
+    margin-top: 10px;
+}
+.OperationButtons button {
+    width: 45px;
+    height: 65px;
+    margin: 3px;
+    border: none;
+    border-radius: 5px;
+    background-color:whitesmoke;
+    color: rgb(230, 115, 0);
+    font-size: 20px;
+
+}
+

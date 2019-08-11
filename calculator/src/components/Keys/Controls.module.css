@@ -1,0 +1,7 @@
+.Controls {
+    display: grid;
+    grid-template-columns: 27% 17% 45%;
+    grid-gap: 6px;
+    width: 400px;
+    background-color: rgb(230, 115, 0);
+}
