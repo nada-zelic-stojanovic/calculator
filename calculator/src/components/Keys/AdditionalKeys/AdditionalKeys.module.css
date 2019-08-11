@@ -11,6 +11,11 @@
     font-weight: bold;
     color:rgb(0, 77, 77);
 }
+
+.EraseButtons button:hover {
+    cursor: pointer;
+    background-color:whitesmoke;
+}
 .OperationButtons {
     margin-top: 10px;
 }
@@ -23,6 +28,12 @@
     background-color:whitesmoke;
     color: rgb(230, 115, 0);
     font-size: 20px;
+    font-weight: bold;
 
+}
+
+.OperationButtons button:hover {
+    cursor: pointer;
+    background-color: lightgray;
 }
 
