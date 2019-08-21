@@ -1,57 +1,95 @@
 .EraseButtons {
-    margin-top: 10px;
+  margin-top: 10px;
+  margin-left: 3px;
+  margin-right: 5px;
 }
 .EraseButtons button {
-    width: 90px;
-    height: 80px;
-    margin: 5px;
-    border: none;
-    border-radius: 5px;
-    font-size: 30px;
-    font-weight: bold;
-    color:rgb(0, 77, 77);
+  width: 70px;
+  height: 80px;
+  margin: 5px;
+  border: none;
+  border-radius: 5px;
+  font-size: 30px;
+  font-weight: bold;
+  color: rgb(0, 77, 77);
 }
 
 .EraseButtons button:hover {
-    cursor: pointer;
-    background-color:whitesmoke;
+  cursor: pointer;
+  background-color: whitesmoke;
 }
 .OperationButtons {
-    margin-top: 10px;
+  margin-top: 10px;
+  margin-left: 3px;
 }
 .OperationButtons button {
-    width: 45px;
-    height: 65px;
-    margin: 3px;
-    border: none;
-    border-radius: 5px;
-    background-color:whitesmoke;
-    color: rgb(230, 115, 0);
-    font-size: 20px;
-    font-weight: bold;
-
+  width: 70px;
+  height: 65px;
+  margin: 3px;
+  border: none;
+  border-radius: 5px;
+  background-color: whitesmoke;
+  color: rgb(230, 115, 0);
+  font-size: 20px;
+  font-weight: bold;
 }
 
 .OperationButtons button:hover {
-    cursor: pointer;
-    background-color: lightgray;
+  cursor: pointer;
+  background-color: lightgray;
 }
 .Parentheses {
-    margin-top: 10px;
+  margin-top: 10px;
+  margin-left: 3px;
 }
-.Parentheses button{
-    width: 45px;
-    height: 35px;
-    margin: 3px;
-    border: none;
-    border-radius: 5px;
-    background-color:whitesmoke;
-    color: rgb(230, 115, 0);
-    font-size: 20px;
-    font-weight: bold;
+.Parentheses button {
+  width: 70px;
+  height: 35px;
+  margin: 3px;
+  border: none;
+  border-radius: 5px;
+  background-color: whitesmoke;
+  color: rgb(230, 115, 0);
+  font-size: 20px;
+  font-weight: bold;
 }
 
 .Parentheses button:hover {
-    cursor: pointer;
-    background-color: lightgray;
+  cursor: pointer;
+  background-color: lightgray;
+}
+
+@media (min-width: 400px) {
+  .EraseButtons {
+    margin-top: 10px;
+  }
+  .EraseButtons button {
+    width: 90px;
+    height: 80px;
+    margin: 5px;
+
+    font-size: 30px;
+  }
+
+  .OperationButtons {
+    margin-top: 10px;
+  }
+  .OperationButtons button {
+    width: 45px;
+    height: 65px;
+    margin: 3px;
+
+    font-size: 20px;
+  }
+
+  .Parentheses {
+    margin-top: 10px;
+  }
+  .Parentheses button {
+    width: 45px;
+    height: 35px;
+    margin: 3px;
+
+    font-size: 20px;
+  }
 }

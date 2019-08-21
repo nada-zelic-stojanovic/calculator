@@ -7,16 +7,27 @@
 
 .Numbers button {
   width: 60px;
-  height: 80px;
-  margin: 5px 5px;
+  height: 128px;
+  margin: 5px 3px;
   border: none;
   border-radius: 5px;
   background-color: rgb(0, 153, 153);
   color:white;
-  font-size: 25px;
+  font-size: 35px;
+  
 }
 
 .Numbers button:hover {
   cursor: pointer;
   background-color: rgb(0, 204, 204);
+}
+
+@media (min-width: 400px) {
+    
+.Numbers button {
+  width: 60px;
+  height: 80px;
+  margin: 5px 5px;
+  font-size: 25px;
+}
 }

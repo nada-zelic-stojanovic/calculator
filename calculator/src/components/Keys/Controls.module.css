@@ -1,8 +1,20 @@
 .Controls {
     display: grid;
-    grid-template-columns: 27% 17% 45%;
-    grid-gap: 6px;
-    width: 400px;
+    grid-template-columns: 23% 23% 45%;
+    
+    width: 100%;
     background-color: rgb(230, 115, 0);
     padding: 20px 0;
+    height: 100%;
+}
+
+@media (min-width: 400px) {
+    .Controls {
+        display: grid;
+        grid-template-columns: 27% 17% 45%;
+        grid-gap: 6px;
+        width: 400px;
+        background-color: rgb(230, 115, 0);
+        padding: 20px 0;
+    }
 }
