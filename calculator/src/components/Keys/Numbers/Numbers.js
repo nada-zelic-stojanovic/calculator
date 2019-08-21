@@ -21,7 +21,7 @@ const numbers = props => (
       <button onClick={() => props.clicked(9)}>9</button>
     </div>
     <div>
-      <button onClick={() => props.clicked('-')}>+/-</button>
+      <button onClick={() => props.clicked('switchSign')}>+/-</button>
       <button onClick={() => props.clicked(0)}>0</button>
       <button onClick={() => props.clicked('.')}>.</button>
     </div>

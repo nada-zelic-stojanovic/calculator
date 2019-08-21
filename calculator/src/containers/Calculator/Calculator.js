@@ -1,39 +1,104 @@
 import React, { Component } from 'react';
 import Display from './../../components/Display/Display';
 import Controls from './../../components/Keys/Controls';
-import classes from './Calculator';
+
+const isNumber = x => !isNaN(x);
+
+const addDigit = (inputExpression, digit) => {
+  const lastIndex = inputExpression.length - 1;
+  const lastElement = inputExpression[lastIndex];
+  if (isNumber(lastElement)) {
+    const newInputExpression = [
+      ...inputExpression.slice(0, lastIndex),
+      lastElement.toString().concat(digit)
+    ];
+    return newInputExpression;
+  } else {
+    const newInputExpression = [...inputExpression, digit];
+    return newInputExpression;
+  }
+};
+
+const switchSign = inputExpression => {
+  const lastIndex = inputExpression.length - 1;
+  const lastElement = inputExpression[lastIndex];
+  if (isNumber(lastElement)) {
+    const newInputExpression = [
+      ...inputExpression.slice(0, lastIndex),
+      '(-' + lastElement + ')'
+    ];
+    return newInputExpression;
+  }
+  return inputExpression;
+};
+
+const handlePercent = inputExpression => {
+  const lastIndex = inputExpression.length - 1;
+  const lastElement = inputExpression[lastIndex];
+  console.log(lastElement);
+
+  let newLastElement = lastElement / 100;
+  const newInputExpression = [
+    ...inputExpression.slice(0, lastIndex),
+    +newLastElement
+  ];
+  return newInputExpression;
+};
 
 class Calculator extends Component {
   state = {
-    inputExpression: '',
+    inputExpression: [],
     result: '',
     prevInput: ''
   };
 
   handleInput = input => {
-    if (
-      isNaN(input) &&
-      input !== '.' &&
-      (input !== '-' && input !== this.state.inputExpression[0])
-    ) {
-      input = ' ' + input + ' ';
+    const { inputExpression } = this.state;
+
+    if (isNumber(input)) {
+      const newInputExpression = addDigit(inputExpression, input);
+      //console.log(newInputExpression);
+      this.setState({ inputExpression: newInputExpression });
+    } else if (input === 'switchSign') {
+      const newInputExpression = switchSign(inputExpression);
+      this.setState({ inputExpression: newInputExpression });
+    } else if (input === '%') {
+      const newInputExpression = handlePercent(inputExpression);
+      this.setState({ inputExpression: newInputExpression });
+    } else if (isNaN(input) && inputExpression.length > 0) {
+      const newInputExpression = inputExpression.concat(input);
+      this.setState({ inputExpression: newInputExpression });
     }
-    let newInput = this.state.inputExpression + input;
-    this.setState({ inputExpression: newInput });
   };
 
+  handleParentheses = inputPar => {
+    const { inputExpression } = this.state;
+    const newInputExpression = inputExpression.concat(inputPar);
+    this.setState({ inputExpression: newInputExpression });
+  }
+
   handleEquals = () => {
-    let inputArr = this.state.inputExpression.replace(/ /g, '').split('');
+    const { inputExpression } = this.state;
+    let strInputExpression;
+    if (typeof inputExpression === 'string') {
+      strInputExpression = inputExpression.concat();
+    } else {
+      strInputExpression = inputExpression.join('');
+    }
     let result;
-    if (inputArr.includes('^')) {
-      let newArr = inputArr.join('').split('^');
+    if (inputExpression.includes('^')) {
+      let newArr = inputExpression.join('').split('^');
       let [num1, num2] = newArr;
       result = Math.pow(num1, num2);
     } else {
-      result = eval(this.state.inputExpression);
+      result = eval(strInputExpression);
     }
-    let previousInput = this.state.inputExpression;
-    this.setState({ result: result, prevInput: previousInput, inputExpression: '' });
+    let previousInput = strInputExpression;
+    this.setState({
+      result: result,
+      prevInput: previousInput,
+      inputExpression: ''
+    });
   };
 
   handleClear = () => {
@@ -41,28 +106,35 @@ class Calculator extends Component {
   };
 
   handleBackspace = () => {
-    let expression = this.state.inputExpression.trimRight().slice(0, -1);
+    let { inputExpression } = this.state;
+    let expression = inputExpression.toString().trimRight().slice(0, -1);
     this.setState({ inputExpression: expression });
   };
 
   handlePow2 = () => {
     let result = Math.pow(this.state.inputExpression, 2);
-    this.setState({ result: result });
+    const { inputExpression } = this.state;
+    let newInputExp = inputExpression + '^2';
+    this.setState({ result: result, prevInput: newInputExp });
   };
 
   handleSqrt = () => {
     let result = Math.sqrt(this.state.inputExpression);
-    this.setState({ result: result });
+    const { inputExpression } = this.state;
+    let newInputExp = 'sqrt(' + inputExpression + ')';
+    this.setState({ result: result, prevInput: newInputExp });
   };
 
   handleReciprocal = () => {
-      let result = 1 / this.state.inputExpression;
-      this.setState({ result: result });
-  }
+    let result = 1 / this.state.inputExpression;
+    const { inputExpression } = this.state;
+    let newInputExp = '1/' + inputExpression;
+    this.setState({ result: result, prevInput: newInputExp });
+  };
 
   render() {
     return (
-      <div className={classes.Calculator}>
+      <div>
         <Display
           userInput={this.state.inputExpression}
           score={this.state.result}
@@ -76,6 +148,7 @@ class Calculator extends Component {
           xPow2Clicked={this.handlePow2}
           sqrtClicked={this.handleSqrt}
           reciprocalClicked={this.handleReciprocal}
+          parenthesesClicked={this.handleParentheses}
         />
       </div>
     );
