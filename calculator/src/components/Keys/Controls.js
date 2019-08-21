@@ -13,8 +13,9 @@ const controls = props => (
       xPow2Clicked={props.xPow2Clicked}
       powClicked={props.clicked}
       recClicked={props.reciprocalClicked}
+      parenthesesClicked={props.parenthesesClicked}
     />
-    <Operators clicked={props.clicked} equalsClicked={props.equalsClicked} />
+    <Operators clicked={props.clicked} equalsClicked={props.equalsClicked}/>
     <Numbers clicked={props.clicked} />
   </div>
 );
