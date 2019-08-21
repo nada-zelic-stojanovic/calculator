@@ -116,21 +116,21 @@ class Calculator extends Component {
     let result = Math.pow(this.state.inputExpression, 2);
     const { inputExpression } = this.state;
     let newInputExp = inputExpression + '^2';
-    this.setState({ result: result, prevInput: newInputExp });
+    this.setState({ result: result, prevInput: newInputExp, inputExpression: '' });
   };
 
   handleSqrt = () => {
     let result = Math.sqrt(this.state.inputExpression);
     const { inputExpression } = this.state;
     let newInputExp = 'sqrt(' + inputExpression + ')';
-    this.setState({ result: result, prevInput: newInputExp });
+    this.setState({ result: result, prevInput: newInputExp, inputExpression: '' });
   };
 
   handleReciprocal = () => {
     let result = 1 / this.state.inputExpression;
     const { inputExpression } = this.state;
     let newInputExp = '1/' + inputExpression;
-    this.setState({ result: result, prevInput: newInputExp });
+    this.setState({ result: result, prevInput: newInputExp, inputExpression: '' });
   };
 
   render() {
