@@ -2,7 +2,7 @@ import React from 'react';
 import classes from './Display.module.css';
 import UserInput from './UserInput';
 
-const display = props => {
+const Display = props => {
   return (
     <div className={classes.Display}>
       <p result={props.score} style={{ textAlign: 'right', fontSize: '40px' }}>
@@ -13,4 +13,4 @@ const display = props => {
   );
 };
 
-export default display;
+export default Display;

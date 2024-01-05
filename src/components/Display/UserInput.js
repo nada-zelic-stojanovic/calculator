@@ -1,6 +1,6 @@
 import React from 'react';
 
-const userInput = props => (
+const UserInput = props => (
   <div>
     <div
       input={props.expression}
@@ -11,4 +11,4 @@ const userInput = props => (
   </div>
 );
 
-export default userInput;
+export default UserInput;

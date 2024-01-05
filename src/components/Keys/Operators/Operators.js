@@ -1,7 +1,7 @@
 import React from 'react';
 import classes from './Operators.module.css';
 
-const operators = props => (
+const Operators = props => (
     <div className={classes.Operators}>
         <button onClick={() => props.clicked('+')} style={{marginTop: '18px'}}>+</button>
         <button onClick={() => props.clicked('-')}>-</button>
@@ -12,4 +12,4 @@ const operators = props => (
     </div>
 )
 
-export default operators;
+export default Operators;

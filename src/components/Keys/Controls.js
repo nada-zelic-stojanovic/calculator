@@ -4,7 +4,7 @@ import Operators from './Operators/Operators';
 import AdditionalKeys from './AdditionalKeys/AdditionalKeys';
 import classes from './Controls.module.css';
 
-const controls = props => (
+const Controls = props => (
   <div className={classes.Controls}>
     <AdditionalKeys
       cClicked={props.clearClicked}
@@ -20,4 +20,4 @@ const controls = props => (
   </div>
 );
 
-export default controls;
+export default Controls;

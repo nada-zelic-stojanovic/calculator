@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, {useState} from 'react';
 import Display from './../../components/Display/Display';
 import Controls from './../../components/Keys/Controls';
 import  './Calculator.css';
@@ -46,40 +46,31 @@ const handlePercent = inputExpression => {
   return newInputExpression;
 };
 
-class Calculator extends Component {
-  state = {
-    inputExpression: [],
-    result: '',
-    prevInput: ''
-  };
+const Calculator = () => {
+  const [inputExpression, setInputExpression] = useState('');
+  const [result, setResult] = useState('');
+  const [prevInput, setPrevInput] = useState('');
 
-  handleInput = input => {
-    const { inputExpression } = this.state;
-
+  const handleInput = input => {
+    let newInputExpression;
     if (isNumber(input)) {
-      const newInputExpression = addDigit(inputExpression, input);
-      //console.log(newInputExpression);
-      this.setState({ inputExpression: newInputExpression });
+      newInputExpression = addDigit(inputExpression, input);
     } else if (input === 'switchSign') {
-      const newInputExpression = switchSign(inputExpression);
-      this.setState({ inputExpression: newInputExpression });
+      newInputExpression = switchSign(inputExpression);
     } else if (input === '%') {
-      const newInputExpression = handlePercent(inputExpression);
-      this.setState({ inputExpression: newInputExpression });
+      newInputExpression = handlePercent(inputExpression);
     } else if (isNaN(input) && inputExpression.length > 0) {
-      const newInputExpression = inputExpression.concat(input);
-      this.setState({ inputExpression: newInputExpression });
+      newInputExpression = inputExpression.concat(input);
     }
+    setInputExpression(newInputExpression)
   };
 
-  handleParentheses = inputPar => {
-    const { inputExpression } = this.state;
+  const handleParentheses = inputPar => {
     const newInputExpression = inputExpression.concat(inputPar);
-    this.setState({ inputExpression: newInputExpression });
+    setInputExpression(newInputExpression);
   }
 
-  handleEquals = () => {
-    const { inputExpression } = this.state;
+  const handleEquals = () => {
     let strInputExpression;
     if (typeof inputExpression === 'string') {
       strInputExpression = inputExpression.concat();
@@ -95,65 +86,64 @@ class Calculator extends Component {
       result = eval(strInputExpression);
     }
     let previousInput = strInputExpression;
-    this.setState({
-      result: result,
-      prevInput: previousInput,
-      inputExpression: ''
-    });
+    setInputExpression([]);
+    setPrevInput(previousInput);
+    setResult(result);
   };
 
-  handleClear = () => {
-    this.setState({ inputExpression: '', result: '' });
+  const handleClear = () => {
+    setInputExpression('');
+    setResult('');
   };
 
-  handleBackspace = () => {
-    let { inputExpression } = this.state;
+  const handleBackspace = () => {
     let expression = inputExpression.toString().trimRight().slice(0, -1);
-    this.setState({ inputExpression: expression });
+    setInputExpression(expression);
   };
 
-  handlePow2 = () => {
-    let result = Math.pow(this.state.inputExpression, 2);
-    const { inputExpression } = this.state;
+  const handlePow2 = () => {
+    let result = Math.pow(inputExpression, 2);
     let newInputExp = inputExpression + '^2';
-    this.setState({ result: result, prevInput: newInputExp, inputExpression: '' });
+    setInputExpression('');
+    setResult(result);
+    setPrevInput(newInputExp);
   };
 
-  handleSqrt = () => {
-    let result = Math.sqrt(this.state.inputExpression);
-    const { inputExpression } = this.state;
+  const handleSqrt = () => {
+    let result = Math.sqrt(inputExpression);
     let newInputExp = 'sqrt(' + inputExpression + ')';
-    this.setState({ result: result, prevInput: newInputExp, inputExpression: '' });
+    setInputExpression('');
+    setResult(result);
+    setPrevInput(newInputExp);
   };
 
-  handleReciprocal = () => {
-    let result = 1 / this.state.inputExpression;
-    const { inputExpression } = this.state;
+  const handleReciprocal = () => {
+    let result = 1 / inputExpression;
     let newInputExp = '1/' + inputExpression;
-    this.setState({ result: result, prevInput: newInputExp, inputExpression: '' });
+    setInputExpression('');
+    setResult(result);
+    setPrevInput(newInputExp);
   };
 
-  render() {
     return (
       <div>
         <Display
-          userInput={this.state.inputExpression}
-          score={this.state.result}
-          previousInput={this.state.prevInput}
+          userInput={inputExpression}
+          score={result}
+          previousInput={prevInput}
         />
         <Controls
-          clicked={this.handleInput}
-          equalsClicked={this.handleEquals}
-          clearClicked={this.handleClear}
-          backspaceClicked={this.handleBackspace}
-          xPow2Clicked={this.handlePow2}
-          sqrtClicked={this.handleSqrt}
-          reciprocalClicked={this.handleReciprocal}
-          parenthesesClicked={this.handleParentheses}
+          clicked={handleInput}
+          equalsClicked={handleEquals}
+          clearClicked={handleClear}
+          backspaceClicked={handleBackspace}
+          xPow2Clicked={handlePow2}
+          sqrtClicked={handleSqrt}
+          reciprocalClicked={handleReciprocal}
+          parenthesesClicked={handleParentheses}
         />
       </div>
     );
-  }
 }
 
 export default Calculator;

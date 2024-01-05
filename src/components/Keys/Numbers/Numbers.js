@@ -3,7 +3,7 @@ import classes from './Numbers.module.css';
 
 
 
-const numbers = props => (
+const Numbers = props => (
   <div className={classes.Numbers}>
     <div>
       <button onClick={() => props.clicked(1)}>1</button>
@@ -28,4 +28,4 @@ const numbers = props => (
   </div>
 );
 
-export default numbers;
+export default Numbers;
