@@ -97,7 +97,7 @@ const Calculator = () => {
   }
 
   const handleBackspace = () => {
-    let expression = inputExpression.toString().trimRight().slice(0, -1)
+    let expression = inputExpression.toString().trimEnd().slice(0, -1)
     setInputExpression(expression)
   }
 
