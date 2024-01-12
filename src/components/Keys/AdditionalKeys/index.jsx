@@ -1,4 +1,6 @@
 import React from 'react'
+import PropTypes from 'prop-types'
+
 import classes from './AdditionalKeys.module.css'
 
 const AdditionalKeys = (props) => (
@@ -25,5 +27,15 @@ const AdditionalKeys = (props) => (
     </div>
   </div>
 )
+
+AdditionalKeys.propTypes = {
+  bClicked: PropTypes.func.isRequired,
+  cClicked: PropTypes.func.isRequired,
+  parenthesesClicked: PropTypes.func.isRequired,
+  xPow2Clicked: PropTypes.func.isRequired,
+  powClicked: PropTypes.func.isRequired,
+  sqrtClicked: PropTypes.func.isRequired,
+  recClicked: PropTypes.func.isRequired,
+}
 
 export default AdditionalKeys

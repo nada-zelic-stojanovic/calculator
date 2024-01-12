@@ -1,4 +1,6 @@
 import React from 'react'
+import PropTypes from 'prop-types'
+
 import classes from './Operators.module.css'
 
 const Operators = (props) => (
@@ -13,5 +15,10 @@ const Operators = (props) => (
     <button onClick={props.equalsClicked}>=</button>
   </div>
 )
+
+Operators.propTypes = {
+  clicked: PropTypes.func,
+  equalsClicked: PropTypes.func,
+}
 
 export default Operators

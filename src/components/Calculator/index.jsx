@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import Display from '../Display'
 import Controls from '../Keys/Controls'
-import './Calculator.css'
+import classes from './Calculator.module.css'
 
 const isNumber = (x) => !isNaN(x)
 
@@ -126,7 +126,7 @@ const Calculator = () => {
   }
 
   return (
-    <div>
+    <div className={classes.MainContainer}>
       <Display
         userInput={inputExpression}
         score={result}

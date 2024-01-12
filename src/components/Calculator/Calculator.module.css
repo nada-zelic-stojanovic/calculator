@@ -1,0 +1,6 @@
+.MainContainer {
+    display: flex;
+    flex-direction: column;
+    border: 15px groove rgb(0, 77, 77);
+    width: 400px;
+}

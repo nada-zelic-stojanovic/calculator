@@ -1,4 +1,6 @@
 import React from 'react'
+import PropTypes from 'prop-types'
+
 import Numbers from '../Numbers'
 import Operators from '../Operators'
 import AdditionalKeys from '../AdditionalKeys'
@@ -19,5 +21,16 @@ const Controls = (props) => (
     <Numbers clicked={props.clicked} />
   </div>
 )
+
+Controls.propTypes = {
+  clearClicked: PropTypes.func,
+  backspaceClicked: PropTypes.func,
+  sqrtClicked: PropTypes.func,
+  xPow2Clicked: PropTypes.func,
+  clicked: PropTypes.func,
+  equalsClicked: PropTypes.func,
+  reciprocalClicked: PropTypes.func,
+  parenthesesClicked: PropTypes.func,
+}
 
 export default Controls

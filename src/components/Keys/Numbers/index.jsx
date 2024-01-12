@@ -1,4 +1,6 @@
 import React from 'react'
+import PropTypes from 'prop-types'
+
 import classes from './Numbers.module.css'
 
 const Numbers = (props) => (
@@ -25,5 +27,9 @@ const Numbers = (props) => (
     </div>
   </div>
 )
+
+Numbers.propTypes = {
+  clicked: PropTypes.func,
+}
 
 export default Numbers
