@@ -1,7 +1,7 @@
-import React from 'react';
-import classes from './AdditionalKeys.module.css';
+import React from 'react'
+import classes from './AdditionalKeys.module.css'
 
-const AdditionalKeys = props => (
+const AdditionalKeys = (props) => (
   <div>
     <div className={classes.EraseButtons}>
       <button onClick={props.bClicked}>&#8678;</button>
@@ -24,6 +24,6 @@ const AdditionalKeys = props => (
       <button onClick={props.recClicked}>1/x</button>
     </div>
   </div>
-);
+)
 
-export default AdditionalKeys;
+export default AdditionalKeys

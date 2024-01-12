@@ -1,6 +1,6 @@
-import React from 'react';
+import React from 'react'
 
-const UserInput = props => (
+const UserInput = (props) => (
   <div>
     <div
       input={props.expression}
@@ -9,6 +9,6 @@ const UserInput = props => (
       {props.expression.length > 0 ? props.expression : '0'}
     </div>
   </div>
-);
+)
 
-export default UserInput;
+export default UserInput

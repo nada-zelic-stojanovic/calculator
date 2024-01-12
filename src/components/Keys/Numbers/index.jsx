@@ -1,9 +1,7 @@
-import React from 'react';
-import classes from './Numbers.module.css';
+import React from 'react'
+import classes from './Numbers.module.css'
 
-
-
-const Numbers = props => (
+const Numbers = (props) => (
   <div className={classes.Numbers}>
     <div>
       <button onClick={() => props.clicked(1)}>1</button>
@@ -26,6 +24,6 @@ const Numbers = props => (
       <button onClick={() => props.clicked('.')}>.</button>
     </div>
   </div>
-);
+)
 
-export default Numbers;
+export default Numbers
