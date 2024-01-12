@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
-import Display from './../../components/Display/Display';
-import Controls from './../../components/Keys/Controls';
+import Display from '../Display';
+import Controls from '../Keys/Controls';
 import  './Calculator.css';
 
 const isNumber = x => !isNaN(x);

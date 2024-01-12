@@ -1,7 +1,7 @@
 import React from 'react';
-import Numbers from './Numbers/Numbers';
-import Operators from './Operators/Operators';
-import AdditionalKeys from './AdditionalKeys/AdditionalKeys';
+import Numbers from '../Numbers';
+import Operators from '../Operators';
+import AdditionalKeys from '../AdditionalKeys';
 import classes from './Controls.module.css';
 
 const Controls = props => (
